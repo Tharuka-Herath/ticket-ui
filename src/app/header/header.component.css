@@ -1,0 +1,46 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #212121; /* Dark background color */
+  color: #fff; /* Light text color */
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8em;
+  margin: 0;
+  color: #fff; /* Ensures the text is white */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile button {
+  margin-left: 10px;
+  color: #fff; /* Ensures the buttons are white */
+  background-color: #444; /* Dark button background */
+}
+
+.user-profile button.mat-raised-button {
+  background-color: #1976d2; /* Accent color for logout button */
+  color: white;
+}
+
+.user-profile button.mat-icon-button {
+  background-color: #444; /* Dark button background for profile icon */
+}

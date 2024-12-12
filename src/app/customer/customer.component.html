@@ -1,0 +1,15 @@
+<div class="customer-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Customer Dashboard</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Welcome to the Customer Dashboard!</p>
+      <p>Your User ID is: <strong>{{ userId }}</strong></p>
+      <button mat-raised-button color="primary">Browse Ticket Pools</button>
+      <button mat-raised-button color="accent" [routerLink]="['/customer/purchase-history']" [queryParams]="{ userId: userId }">View Purchases</button>
+    </mat-card-content>
+  </mat-card>
+  <app-ticket-pool-list/>
+  <app-purchase-tickets/>
+</div>

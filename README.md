@@ -1,59 +1,64 @@
-# TicketingSystem
+# Ticketing System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+This project is a web-based ticketing system that allows users to purchase tickets, view their purchase history, and vendors to manage ticket pools and transactions.
 
-## Development server
+---
 
-To start a local development server, run:
+## Technologies Used
 
-```bash
-ng serve
-```
+- **Frontend**: Angular, Angular Material, WebSocket, TypeScript, RxJS
+- **Backend**: Spring Boot, JPA, MySQL
+- **Tools**: Maven, Swagger (API Documentation)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Before setting up the project, make sure you have the following installed:
 
-```bash
-ng generate component component-name
-```
+- **Node.js**
+- **Angular CLI**
+- **Java 17**
+- **Maven**
+- **MySQL/h2**
+- **Docker**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
+## frontend setup
 
-```bash
-ng generate --help
-```
 
-## Building
+- **Node.js**
+- **Angular CLI**
+- **Java 17**
+- **Maven**
+- **MySQL/h2**
+- **Docker**
 
-To build the project run:
+1. before running:
+   ```bash
+   npm install
 
-```bash
-ng build
-```
+1. **Run project on  and it will display in localhost:4200**
+   ```bash
+   ng serve  
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
+## Installation
 
-## Running unit tests
+### Backend Setup (Spring Boot)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Tharuka-Herath/TicketingSystem.git
+   cd ticketing-system-backend
 
-## Running end-to-end tests
+2.My sql from Docker:
+   ```bash
+   docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest
 
-For end-to-end (e2e) testing, run:
+Build and run the backend:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    ```bash
+mvn clean install
+mvn spring-boot:run

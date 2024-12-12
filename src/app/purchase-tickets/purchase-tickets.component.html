@@ -1,0 +1,36 @@
+<div class="purchase-tickets">
+  <h2>Purchase Tickets from a Pool</h2>
+
+  <form [formGroup]="purchaseTicketsForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Ticket Pool ID</mat-label>
+      <input matInput formControlName="ticketPoolId" placeholder="Enter Ticket Pool ID" />
+      <mat-error *ngIf="purchaseTicketsForm.get('ticketPoolId')?.hasError('required')">
+        Ticket Pool ID is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Number of Tickets to Purchase</mat-label>
+      <input matInput formControlName="ticketsToPurchase" type="number" placeholder="Enter number of tickets" />
+      <mat-error *ngIf="purchaseTicketsForm.get('ticketsToPurchase')?.hasError('required')">
+        Number of tickets is required.
+      </mat-error>
+      <mat-error *ngIf="purchaseTicketsForm.get('ticketsToPurchase')?.hasError('min')">
+        At least 1 ticket must be purchased.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>User ID (Customer)</mat-label>
+      <input matInput formControlName="userId" placeholder="Enter your User ID" />
+      <mat-error *ngIf="purchaseTicketsForm.get('userId')?.hasError('required')">
+        User ID is required.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="purchaseTicketsForm.invalid">
+      Purchase Tickets
+    </button>
+  </form>
+</div>

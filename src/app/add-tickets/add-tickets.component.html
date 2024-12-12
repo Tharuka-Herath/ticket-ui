@@ -1,0 +1,36 @@
+<div class="add-tickets">
+  <h2>Add Tickets to a Pool</h2>
+
+  <form [formGroup]="addTicketsForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Ticket Pool ID</mat-label>
+      <input matInput formControlName="ticketPoolId" placeholder="Enter Ticket Pool ID" />
+      <mat-error *ngIf="addTicketsForm.get('ticketPoolId')?.hasError('required')">
+        Ticket Pool ID is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Number of Tickets to Add</mat-label>
+      <input matInput formControlName="ticketsToAdd" type="number" placeholder="Enter number of tickets" />
+      <mat-error *ngIf="addTicketsForm.get('ticketsToAdd')?.hasError('required')">
+        Number of tickets is required.
+      </mat-error>
+      <mat-error *ngIf="addTicketsForm.get('ticketsToAdd')?.hasError('min')">
+        At least 1 ticket must be added.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>User ID (Vendor)</mat-label>
+      <input matInput formControlName="userId" placeholder="Enter your User ID" />
+      <mat-error *ngIf="addTicketsForm.get('userId')?.hasError('required')">
+        User ID is required.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="addTicketsForm.invalid">
+      Add Tickets
+    </button>
+  </form>
+</div>

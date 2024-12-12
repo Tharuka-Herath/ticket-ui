@@ -1,0 +1,16 @@
+/* purchase-history.component.css */
+mat-card {
+  margin: 20px;
+}
+
+mat-table {
+  margin-top: 20px;
+}
+
+mat-header-cell, mat-cell {
+  text-align: left;
+}
+
+button {
+  margin-top: 20px;
+}

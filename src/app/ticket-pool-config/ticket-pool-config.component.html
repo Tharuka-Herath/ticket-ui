@@ -1,0 +1,46 @@
+<div class="ticket-pool-config">
+  <h2>Create Ticket Pool</h2>
+  <form [formGroup]="ticketPoolForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Event Name</mat-label>
+      <input matInput formControlName="eventName" />
+      <mat-error *ngIf="ticketPoolForm.get('eventName')?.hasError('required')">Event name is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ticket Price</mat-label>
+      <input matInput formControlName="ticketPrice" type="number" />
+      <mat-error *ngIf="ticketPoolForm.get('ticketPrice')?.hasError('required')">Ticket price is required.</mat-error>
+      <mat-error *ngIf="ticketPoolForm.get('ticketPrice')?.hasError('min')">Price must be greater than zero.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max Tickets</mat-label>
+      <input matInput formControlName="maxTickets" type="number" />
+      <mat-error *ngIf="ticketPoolForm.get('maxTickets')?.hasError('required')">Max tickets are required.</mat-error>
+      <mat-error *ngIf="ticketPoolForm.get('maxTickets')?.hasError('min')">Must be greater than zero.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Vendor Add Rate</mat-label>
+      <input matInput formControlName="vendorAddRate" type="number" />
+      <mat-error *ngIf="ticketPoolForm.get('vendorAddRate')?.hasError('required')">Vendor add rate is required.</mat-error>
+      <mat-error *ngIf="ticketPoolForm.get('vendorAddRate')?.hasError('min')">Must be greater than zero.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Customer Retrieve Rate</mat-label>
+      <input matInput formControlName="customerRetrieveRate" type="number" />
+      <mat-error *ngIf="ticketPoolForm.get('customerRetrieveRate')?.hasError('required')">Customer retrieve rate is required.</mat-error>
+      <mat-error *ngIf="ticketPoolForm.get('customerRetrieveRate')?.hasError('min')">Must be greater than zero.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="ticketPoolForm.invalid">
+      Create Ticket Pool
+    </button>
+  </form>
+
+  <div *ngIf="ticketPoolId">
+    <p>Ticket Pool ID: {{ ticketPoolId }}</p>
+  </div>
+</div>

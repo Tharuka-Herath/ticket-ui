@@ -1,0 +1,39 @@
+<!-- purchase-history.component.html -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Purchase History</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Showing purchase history for user: <strong>{{ userId }}</strong></p>
+
+    <!-- Table to display the purchase history -->
+    <mat-table [dataSource]="transactions">
+      <ng-container matColumnDef="ticketId">
+        <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{ transaction.ticketId }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ticketPoolId">
+        <mat-header-cell *matHeaderCellDef> Ticket Pool ID </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{ transaction.ticketPoolId }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Ticket Price </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{ transaction.price | currency }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="createdAt">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{ transaction.createdAt | date:'short' }} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <button mat-raised-button color="primary" [routerLink]="['/customer']" [queryParams]="{ userId: userId }">
+      Back to Dashboard
+    </button>
+  </mat-card-content>
+</mat-card>
